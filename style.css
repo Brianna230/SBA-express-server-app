@@ -1,0 +1,59 @@
+
+.lora{
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-style: italic;
+}
+
+body{
+    background-color:#9966CC !important;
+}
+h1{
+    font-family: "Lora",serif;
+    text-align: center;
+    color:#dcd6f7 !important;
+    background-color: #d6b3ff;
+}
+h2{
+    text-align: center;
+    color:#a093d9 !important;
+}
+form{
+    width: 500px;
+    margin: 30px auto;
+    background-color:  #c8b8c8;
+    color:#a093d9!important;
+    box-shadow:0 4px 8px rgb(65, 61, 61);
+    padding: 30px;
+    font-family:"Lora",serif ;
+}
+
+input[type=text],[type=email],[type=password]{
+    width: 90%;
+    border: 1px purple solid;
+    border-radius: 5px;
+    padding: 12px 20px;
+    resize: vertical;
+    cursor:pointer;
+    background-color:#f0f0f5;
+}
+.button-container{
+    display: flex;
+    text-align: center;
+    margin-left: 170px;
+
+}
+button{
+    padding: 12px 20px;
+    background-color: #b19cd9;
+    position: relative;
+    border-radius: 10px !important;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color:#9E7BB5;
+    transition: 0.5s;
+
+}
