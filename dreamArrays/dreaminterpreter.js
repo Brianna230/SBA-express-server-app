@@ -28,5 +28,13 @@ const dreamInterpreter =[{id:1, symbol:"Flying", meaning:"A desire for freedom o
 Router.get('/',(req,res)=>{
     res.json(dreamInterpreter)
 })
+Router.get('/:id',(req,res)=>{
+const dreamId = dreamInterpreter.find((u)=>u.id == req.params.id);
+if(dreamId)
+    {res.json(dreamId)}else{
+        res.status(404);
+        res.json({error:"Dream meaning not found"})
+    }
+})
 
 export default Router;

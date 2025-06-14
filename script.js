@@ -2,12 +2,19 @@ import express from "express"
 
 import dreamInterpreter from "./dreamArrays/dreaminterpreter.js"
 
+import users from "./dreamArrays/user.js"
+
+import dreamSubmits from "./dreamArrays/dreamsubmits.js"
+
 const app = express()
 const port = 3000
 app.use(express.urlencoded({extend:true}))
 app.use(express.json())
+app.set('view engine','ejs');
 
 app.use('/dreams',dreamInterpreter)
+app.use('/users' ,users)
+app.use('/dreamsubmits',dreamSubmits)
 
 app.use((req,res,next)=>{
     console.log('Request Received')
@@ -35,3 +42,9 @@ app.get('/dreams',(req,res)=>{
    res.json(dreamInterpreter)
 })
 
+app.get('/users',(req,res)=>{
+    res.json(users)
+})
+app.get('/dreamsubmits',(req,res)=>{
+    res.json(users)
+})
