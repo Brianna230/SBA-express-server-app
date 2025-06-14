@@ -4,8 +4,10 @@ import dreamInterpreter from "./dreamArrays/dreaminterpreter.js"
 
 const app = express()
 const port = 3000
+app.use(express.urlencoded({extend:true}))
+app.use(express.json())
 
-app.use('/dreaminterpretations',dreamInterpreter)
+app.use('/dreams',dreamInterpreter)
 
 app.use((req,res,next)=>{
     console.log('Request Received')
@@ -20,6 +22,16 @@ app.get('/',(req,res)=>{
     res.send('dream journel live')
 })
 
-app.post('/',(req,res)=>{
+app.get('/signup',(req,res)=>{
+    res.sendFile(__dirname +'/index.html');
+})
+
+app.post('/signup',(req,res)=>{
+    console.log(req.body)
     res.send('Data is Post')
 })
+
+app.get('/dreams',(req,res)=>{
+   res.json(dreamInterpreter)
+})
+

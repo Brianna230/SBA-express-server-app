@@ -25,7 +25,7 @@ const dreamInterpreter =[{id:1, symbol:"Flying", meaning:"A desire for freedom o
 
 ];
 
-Router.get('/dreamInterpreter',(req,res)=>{
+Router.get('/',(req,res)=>{
     res.json(dreamInterpreter)
 })
 
