@@ -20,7 +20,8 @@ app.use('/dreamsubmits',dreamSubmits)
 app.use((req,res,next)=>{
     console.log('Request Received')
     next()
-});
+})
+
 
 app.listen(port,()=>{
     console.log(`Server running on port: ${port}`)

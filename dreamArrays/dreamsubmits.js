@@ -7,6 +7,11 @@ const dreamSubmits =[{id:1,title:"A purple moon", description:"I saw a giant moo
     {id:3,title:"Talking a cat",description:"A black cat spoke to me in riddles and led me to a hidden door in my childhood home"}
 ]
 
+Router.use((req,res,next)=>{
+    console.log('Retrieved Dream Submission')
+    next()
+});
+
 Router.get('/',(req,res)=>{
     res.json(dreamSubmits);
 });
@@ -19,7 +24,7 @@ if(dreamSubmission)
         res.json({error:"Dream submission not found"})
     }
 })
-
+//Delete route
 Router.delete('/:id',(req,res,next)=>{
     const dreamID = parseInt(req.params.id);
     const dreamSubObject = dreamSubmits.findIndex((u)=>u.id == dreamID); // to find user by ID
@@ -31,7 +36,7 @@ Router.delete('/:id',(req,res,next)=>{
     
 
     res.json({message:"Data deleted successfully"})
-    
+
 });
 
 
