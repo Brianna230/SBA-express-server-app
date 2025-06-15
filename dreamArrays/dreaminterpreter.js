@@ -28,6 +28,8 @@ const dreamInterpreter =[{id:1, symbol:"Flying", meaning:"A desire for freedom o
 Router.get('/',(req,res)=>{
     res.json(dreamInterpreter)
 })
+
+//route paramenter
 Router.get('/:id',(req,res)=>{
 const dreamId = dreamInterpreter.find((u)=>u.id == req.params.id);
 if(dreamId)
@@ -36,14 +38,16 @@ if(dreamId)
         res.json({error:"Dream meaning not found"})
     }
 })
+
+//Patch route
 Router.patch('/:id',(req,res)=>{
-const updateObject = parseInt(req.params.id);
-const dreamObject = dreamInterpreter.find((u)=>u.id == updateObject);
+const updateObject = parseInt(req.params.id); // get the id from the request parameters
+const dreamObject = dreamInterpreter.find((u)=>u.id == updateObject); // to find user by ID
 if(!dreamObject){
 
        return res.status(404).json({error:"Dream meaning not found"})
     }
- const updates = req.body;
+ const updates = req.body; //update the data with the provided information from the client side
  for(let key in updates){
     dreamObject[key] = updates[key];
  } 

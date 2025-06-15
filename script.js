@@ -30,7 +30,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/signup',(req,res)=>{
-    res.sendFile(__dirname +'/index.html');
+    res.sendFile(__dirname +'/index.html');  
 })
 
 app.post('/signup',(req,res)=>{

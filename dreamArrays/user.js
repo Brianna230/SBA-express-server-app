@@ -9,12 +9,13 @@ const users =[{id: 1, username:"brianna101",email:"bri@example.com",password:"12
     {id:5,username:"visionsurge", email:"visionsurge@example.com", password:"vision888"},
 ]
 
+//Show data in json format
 Router.get('/',(req,res)=>{
     res.json(users);
 })
 
 Router.get('/:id',(req,res)=>{
-const dreamUsers = users.find((u)=>u.id == req.params.id);
+const dreamUsers = users.find((u)=>u.id == req.params.id); // find user by id
 if(dreamUsers) res.json(dreamUsers)
 })
 

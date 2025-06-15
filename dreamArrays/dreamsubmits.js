@@ -9,8 +9,30 @@ const dreamSubmits =[{id:1,title:"A purple moon", description:"I saw a giant moo
 
 Router.get('/',(req,res)=>{
     res.json(dreamSubmits);
+});
+
+Router.get('/:id',(req,res)=>{
+const dreamSubmission = dreamSubmits.find((u)=>u.id == req.params.id);
+if(dreamSubmission)
+    {res.json(dreamSubmission)}else{
+        res.status(404);
+        res.json({error:"Dream submission not found"})
+    }
 })
 
+Router.delete('/:id',(req,res,next)=>{
+    const dreamID = parseInt(req.params.id);
+    const dreamSubObject = dreamSubmits.findIndex((u)=>u.id == dreamID); // to find user by ID
+    if(dreamSubObject === -1){
+
+       return res.status(404).json({error:"Dream submission not found"})
+    }
+      dreamSubmits.splice(dreamSubObject,1);
+    
+
+    res.json({message:"Data deleted successfully"})
+    
+});
 
 
 export default Router
