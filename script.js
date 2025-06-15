@@ -11,6 +11,7 @@ const port = 3000
 app.use(express.urlencoded({extend:true}))
 app.use(express.json())
 app.set('view engine','ejs');
+app.use('/public',express.static('public'))
 
 app.use('/dreams',dreamInterpreter)
 app.use('/users' ,users)
@@ -30,7 +31,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/signup',(req,res)=>{
-    res.sendFile(__dirname +'/index.html');  
+    res.render('index' ,{title:'Sign Up'});  
 })
 
 app.post('/signup',(req,res)=>{
