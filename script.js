@@ -48,5 +48,5 @@ app.get('/users',(req,res)=>{
     res.json(users)
 })
 app.get('/dreamsubmits',(req,res)=>{
-    res.json(users)
+    res.json(dreamSubmits)
 })
